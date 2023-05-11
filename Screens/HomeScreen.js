@@ -1,13 +1,8 @@
-import { View, Image ,Text} from 'react-native'
+import { View, Image, Text } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {
-    ChevronDownIcon,
-    SearchIcon,
-    UserIcon,
-    AdjustmentsIcon
-} from "react-native-heroicons/outline";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function HomeScreen() {
     const navigation = useNavigation();
@@ -18,21 +13,25 @@ export default function HomeScreen() {
         })
     }, [])
     return (
-        <SafeAreaView>
+        <SafeAreaView className="bg-white" >
             {/* Header which includes logo and search bar*/}
-            <View className="flex-row">
+            <View className="flex-row mx-2 my-3 space-x-2">
                 <Image
 
                     source={{
                         uri: 'https://picsum.photos/200/300',
                     }}
-                    className="h-7 w-7 bg-gray-300 p-4 rounded-full"
+                    className="h-10 w-10 bg-gray-300 p-4 rounded-full"
                 />
-                <View>
-                    <Text className="text-gray-400 text-xs">Deliver Now</Text>
-                    <Text className="text-xl font-bold">Current Location <ChevronDownIcon size={20} color="00ccbb"/></Text>
+                <View className="flex-1">
+                    <Text className="text-gray-400 text-xs">Deliver Now!</Text>
+                    <Text className="text-xl font-bold">
+                        Current Location
+                        <Icon name="chevron-down" size={20} color="#00CCBB" />
+                    </Text>
 
                 </View>
+                <Icon name="user-circle"  size={30} color="#00CCBB"/>
 
             </View>
         </SafeAreaView>
