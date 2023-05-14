@@ -3,6 +3,8 @@ import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Categories from '../Components/Categories';
+import FeaturedRow from '../Components/FeaturedRow';
 
 export default function HomeScreen() {
     const navigation = useNavigation();
@@ -43,13 +45,21 @@ export default function HomeScreen() {
 
             </View>
 
-
             {/* Body */}
-            <ScrollView>
+            <ScrollView className="bg-gray-100" contentContainerStyle={{
+                paddingBottom:150
+            }}>
                 {/* Categories section */}
+                <Categories />
+                {/* Featured Section */}
+                <FeaturedRow title="Featured" description="paid placements from our partners" featuredCategory="Featured" />
 
+                {/* tasty discounts */}
+                <FeaturedRow title="Tasty Discounts" description="everyone is enjoying these juicy discounts" featuredCategory="Featured" />
 
                 {/* Featured Section */}
+                <FeaturedRow title="Offers near you!" description="paid placements from our partners" featuredCategory="Featured" />
+               
             </ScrollView>
         </SafeAreaView>
     )
